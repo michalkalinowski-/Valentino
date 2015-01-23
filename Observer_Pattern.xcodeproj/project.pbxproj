@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EC97F0AA1A7168FA003B9BB9 /* Observer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC97F0A91A7168FA003B9BB9 /* Observer.cpp */; };
 		ECE6965A1A7129DD00B31D79 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECE696591A7129DD00B31D79 /* main.cpp */; };
+		ECE696671A712EA400B31D79 /* Subject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ECE696661A712EA400B31D79 /* Subject.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,8 +25,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		EC97F0A91A7168FA003B9BB9 /* Observer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Observer.cpp; sourceTree = "<group>"; };
 		ECE696561A7129DD00B31D79 /* Observer_Pattern */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Observer_Pattern; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECE696591A7129DD00B31D79 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		ECE696611A712A0600B31D79 /* Observer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Observer.h; sourceTree = "<group>"; };
+		ECE696641A712B1F00B31D79 /* Subject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Subject.h; sourceTree = "<group>"; };
+		ECE696661A712EA400B31D79 /* Subject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Subject.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +64,10 @@
 			isa = PBXGroup;
 			children = (
 				ECE696591A7129DD00B31D79 /* main.cpp */,
+				ECE696641A712B1F00B31D79 /* Subject.h */,
+				ECE696661A712EA400B31D79 /* Subject.cpp */,
+				ECE696611A712A0600B31D79 /* Observer.h */,
+				EC97F0A91A7168FA003B9BB9 /* Observer.cpp */,
 			);
 			path = Observer_Pattern;
 			sourceTree = "<group>";
@@ -118,6 +128,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECE696671A712EA400B31D79 /* Subject.cpp in Sources */,
+				EC97F0AA1A7168FA003B9BB9 /* Observer.cpp in Sources */,
 				ECE6965A1A7129DD00B31D79 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -202,6 +214,7 @@
 		ECE6965E1A7129DD00B31D79 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				LINK_WITH_STANDARD_LIBRARIES = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -209,6 +222,7 @@
 		ECE6965F1A7129DD00B31D79 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				LINK_WITH_STANDARD_LIBRARIES = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -232,6 +246,7 @@
 				ECE6965F1A7129DD00B31D79 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
