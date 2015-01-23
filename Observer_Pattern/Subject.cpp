@@ -11,6 +11,7 @@
 
 
 void Subject::Attach (Observer * o) {
+    _observers = new std::list<Observer *>();
     _observers->push_back(o);
 }
 

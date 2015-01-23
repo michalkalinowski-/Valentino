@@ -42,7 +42,7 @@ Clock::~Clock() {
 }
 
 void Clock::Update(Subject * theChangedSubject) {
-    std::cout << "dupdupdup";
+    std::cout << "Event caught\n";
 }
 
 
