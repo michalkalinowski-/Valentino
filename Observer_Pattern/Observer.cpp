@@ -12,5 +12,5 @@
 Observer::~Observer() {
 };
 
-void Observer::Update(Subject *theChangedSubject) {
+void Observer::Update(const Event& e) {
 };

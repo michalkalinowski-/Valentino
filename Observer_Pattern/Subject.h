@@ -13,13 +13,15 @@
 #include <list>
 #include "Observer.h"
 
+enum class Event;
+
 class Subject {
 public:
     virtual ~Subject();
     
     virtual void Attach(Observer *);
     virtual void Detach(Observer *);
-    virtual void Notify();
+    virtual void Notify(const Event&);
 
 private:
     std::list<Observer*> *_observers;

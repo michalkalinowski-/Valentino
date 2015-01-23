@@ -13,11 +13,12 @@
 #include <iostream>
 
 class Subject;
+enum class Event;
 
 class Observer {
 public:
     virtual ~Observer();
-    virtual void Update(Subject* theChangedSubject) = 0;
+    virtual void Update(const Event&) = 0;
 };
 
 #endif /* defined(__Observer_Pattern__Observer__) */

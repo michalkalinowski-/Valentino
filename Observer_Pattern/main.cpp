@@ -10,29 +10,33 @@
 #include "Observer.h"
 #include "Subject.h"
 
-// example subject
-class Timer : public Subject {
-public:
-    void Tick();
+enum class Event{
+    START,
+    KILL
 };
 
-void Timer::Tick() {
-    Notify();
+// example subject
+class Controller : public Subject {
+public:
+    void RaiseEvent(const Event&);
+};
+void Controller::RaiseEvent(const Event& e) {
+    Notify(e);
 }
 
 // example receiver
 class Clock : public Observer {
 public:
-    Clock(Timer*);
+    Clock(Controller *);
     virtual ~Clock();
     
-    virtual void Update(Subject *);
+    virtual void Update(const Event&);
 
 private:
-    Timer * _subject;
+    Controller * _subject;
 };
 
-Clock::Clock(Timer * s) {
+Clock::Clock(Controller * s) {
     _subject = s;
     _subject -> Attach(this);
 }
@@ -41,18 +45,28 @@ Clock::~Clock() {
     _subject -> Detach(this);
 }
 
-void Clock::Update(Subject * theChangedSubject) {
-    std::cout << "Event caught\n";
+void Clock::Update(const Event& e) {
+    switch (e) {
+        case (Event::KILL):
+            std::cout << "KILL \n";
+            break;
+        
+        default:
+            std::cout << "SOMETHING ELSE \n";
+            break;
+    }
 }
 
 
 // MAIN
 int main(int argc, const char * argv[]) {
     
-    Timer * timer = new Timer;
-    Clock * clock = new Clock(timer);
+    Controller * ctrl = new Controller;
     
-    timer -> Tick();
+    Clock * clock = new Clock(ctrl);
+    
+    ctrl -> RaiseEvent(Event::KILL);
+    ctrl -> RaiseEvent(Event::START);
     
     return 0;
 }

@@ -19,10 +19,10 @@ void Subject::Detach (Observer * o) {
     _observers->remove(o);
 }
 
-void Subject::Notify () {
+void Subject::Notify (const Event& e) {
     std::list<Observer *>::const_iterator i;
     for (i = _observers->begin(); i != _observers->end(); ++i) {
-        (*i)->Update(this);
+        (*i)->Update(e);
     }
 }
 
