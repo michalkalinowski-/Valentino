@@ -32,7 +32,7 @@ static WORKING_AREA(waThread1, 64);
 static msg_t Thread1(void *arg) {
   int i = 0;
   // this doesn't work!!!!
-  in1.registerAction(in1.getOffState, &off_action);
+  in1.registerAction(Button::OFF, &off_action);
   while (!chThdShouldTerminate()) {
     if (i < 22) {
       in1.updateStatus(true);

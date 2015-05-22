@@ -70,17 +70,29 @@ bool Button::checkOff() {
   return false;
 }
 
-void Button::registerAction(int state, void (*func)()) {
+void Button::registerAction(State state, void (*func)()) {
   switch(state) {
-    case 0:
+    case OFF:
       off_func = func;
       break;
-    case 1:
+    case CLICK:
       click_func = func;
       break;
-    case 3:
+    case HOLD:
       hold_func = func;
       break;
   }
 
+}
+
+Button::State Button::getOffState() {
+  return OFF;
+}
+
+Button::State Button::getClickState() {
+  return CLICK;
+}
+
+Button::State Button::getHoldState() {
+  return HOLD;
 }
