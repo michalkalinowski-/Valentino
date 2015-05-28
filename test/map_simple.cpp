@@ -33,6 +33,7 @@ template <class KeyT, class ValT> int MapSimple<KeyT, ValT>::size() {
   return nextFree;
 }
 
+#ifdef TESTING
 TEST_CASE( "Testing Map", "[setForKey]" ) {
     int testMapSize = 5;
     MapSimple<char, int> testMap(testMapSize);
@@ -56,3 +57,4 @@ TEST_CASE( "Testing Map", "[setForKey]" ) {
       }
     }
 }
+#endif

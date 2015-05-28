@@ -1,8 +1,10 @@
 #ifndef BUTTON_H
   #define BUTTON_H
 
-  #define CATCH_CONFIG_MAIN
-  #include "catch.hpp"
+  #ifdef TESTING
+    #define CATCH_CONFIG_MAIN
+    #include "catch.hpp"
+  #endif
 
   template <class KeyT, class ValT>
   class MapSimple {
