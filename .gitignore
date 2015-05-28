@@ -2,3 +2,6 @@
 *.d
 *.hex
 *.elf
+
+*.sublime-project
+*.sublime-workspace
