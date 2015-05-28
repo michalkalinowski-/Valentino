@@ -1,5 +1,8 @@
 // Example to demonstrate thread definition, semaphores, and thread sleep.
+#include "WProgram.h"
 #include <ChibiOS_ARM.h>
+#include <Arduino.h>
+
 #include "Button.h"
 
 // The LED is attached to pin 13 on Arduino.
@@ -69,17 +72,6 @@ static msg_t Thread2(void *arg) {
   return 0;
 }
 //------------------------------------------------------------------------------
-void setup() {
-  Serial.begin(9600);
-  // wait for USB Serial
-  while (!Serial) {}
-
-  chBegin(chSetup);
-  // chBegin never returns, main thread continues with mainThread()
-  while(1) {
-  }
-}
-//------------------------------------------------------------------------------
 // main thread runs at NORMALPRIO
 void chSetup() {
 
@@ -90,6 +82,18 @@ void chSetup() {
   chThdCreateStatic(waThread2, sizeof(waThread2),
     NORMALPRIO + 1, Thread2, NULL);
 
+}
+//------------------------------------------------------------------------------
+extern "C" int main(void)
+{
+  Serial.begin(9600);
+  // wait for USB Serial
+  while (!Serial) {}
+
+  chBegin(chSetup);
+  // chBegin never returns, main thread continues with mainThread()
+  while(1) {
+  }
 }
 //------------------------------------------------------------------------------
 void loop() {
