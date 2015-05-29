@@ -1,5 +1,5 @@
-#ifndef BUTTON_H
-  #define BUTTON_H
+#ifndef MAPSIMPLE_H
+  #define MAPSIMPLE_H
 
   #ifdef TESTING
     #define CATCH_CONFIG_MAIN

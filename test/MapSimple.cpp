@@ -1,4 +1,4 @@
-#include "map_simple.h"
+#include "MapSimple.h"
 
 template <class KeyT, class ValT> MapSimple<KeyT, ValT>::MapSimple(int size) {
   keys = new char[size];
