@@ -2,6 +2,7 @@
   #define BUTTON_H
 
   #include "Arduino.h"
+  #include "MapSimple.h"
 
   class Button {
     boolean previousStates[20] = {0};
@@ -21,15 +22,13 @@
     bool checkOn();
     bool checkHold();
     bool checkOff();
+    typedef void(*f_pointer)();
+    MapSimple<State, f_pointer>* actionsMap;
     public:
     State currentState = OFF;
     void updateStatus(boolean status);
     void registerAction(State state, void (*func)());
     void printStatus();
-    // Getters setters magic
-    State getOffState();
-    State getClickState();
-    State getHoldState();
   };
 
 #endif

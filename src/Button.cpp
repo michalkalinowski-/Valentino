@@ -25,6 +25,8 @@ void Button::updateStatus(boolean status) {
         transitionState(OFF);
       }
       break;
+    default:
+      break;
   }
 }
 
@@ -45,6 +47,7 @@ void Button::shiftArrayRight(boolean* array, size_t size) {
 void Button::transitionState(State state) {
   currentState = state;
   // Execute state method here
+  // Use STDLIB map
 }
 
 bool Button::checkHold() {
@@ -70,6 +73,7 @@ bool Button::checkOff() {
   return false;
 }
 
+// TODO : Write a conveniance constructor
 void Button::registerAction(State state, void (*func)()) {
   switch(state) {
     case OFF:
@@ -81,18 +85,8 @@ void Button::registerAction(State state, void (*func)()) {
     case HOLD:
       hold_func = func;
       break;
+    default:
+      break;
   }
 
-}
-
-Button::State Button::getOffState() {
-  return OFF;
-}
-
-Button::State Button::getClickState() {
-  return CLICK;
-}
-
-Button::State Button::getHoldState() {
-  return HOLD;
 }
